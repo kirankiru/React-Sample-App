@@ -1,3 +1,8 @@
+@import '../../styles/variables.scss';
 .card-container {
     width: 99%
+}
+
+.view-text {
+   color: $primary;
 }

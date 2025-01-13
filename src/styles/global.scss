@@ -1,1 +1,27 @@
-$text-color: #ffffff;  // White text for contrast
+@import './variables';
+
+.btn-primary {
+  background-color: #3498db !important; 
+  border-color: #3498db !important; 
+}
+
+
+:root {
+    --primary: #{$primary};
+    --secondary: #{$secondary};
+    --body-bg: #{$body-bg};
+    --body-color: #{$body-color};
+    --bg-primary:#{$primary};
+}
+
+.spinner-border-custom {
+   color: $primary !important; // Use your custom color (e.g., $primary)
+}
+
+.app-header-post {
+    background-color: $primary;
+}
+
+.card-title {
+  color: $primary,
+}
