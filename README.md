@@ -1,1 +1,1 @@
-# React-Sample-App
+# Create React App Sample project
