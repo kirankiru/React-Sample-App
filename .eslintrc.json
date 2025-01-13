@@ -26,6 +26,8 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "arrow-body-style": ["off"],
+    "react/jsx-indent": ["error", 2],
+    "max-len": ["error", { "code": 300 }],
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "object-curly-newline": ["error", { "multiline": true, "minProperties": 3 }],
     "import/no-extraneous-dependencies": [

@@ -1,16 +1,14 @@
 import './styles/global.scss';
 import './styles/custom-bootstrap.scss';
 import './App.scss';
+import Header from './components/common/header';
+import DisplayPosts from './components/posts/displayPosts';
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <p className="text-primary">Sample App 1</p>
-        <button type="button" className="btn btn-secondary">
-          Click Me!
-        </button>
-      </header>
+      <Header />
+      <DisplayPosts />
     </div>
   );
 };
