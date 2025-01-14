@@ -11,12 +11,14 @@ import {
   ADD_POSTS,
 } from '../../utils/constants';
 import utils from '../../utils/utils';
+import EditPosts from './edit-posts/edit-posts';
 
 const { generateRandomString } = utils;
 
 const DisplayPosts = () => {
   const [posts, setPosts] = useState([]);
   const [showLoader, setLoader] = useState(false);
+  const [currentPost, setCurrentPost] = useState(null);
 
   const fetchPosts = async () => {
     try {
@@ -56,9 +58,34 @@ const DisplayPosts = () => {
     createPosts(payload);
   };
 
+  const handleCloseModal = () => {
+    setCurrentPost(null);
+  };
+
   useEffect(() => {
     fetchPosts();
   }, []);
+
+  const handleEditPost = (selectedPost) => {
+    setCurrentPost(selectedPost);
+  };
+
+  const updatePosts = (updatedPosts) => {
+    console.log('updated posts: ', updatedPosts);
+    const oldPosts = posts.map((post) => {
+      return post;
+    });
+    console.log();
+    const selectedPostIndex = oldPosts.findIndex((post) => {
+      return post.id === updatedPosts.id;
+    });
+    if (selectedPostIndex > -1) {
+      oldPosts[selectedPostIndex].title = updatedPosts.title;
+      oldPosts[selectedPostIndex].body = updatedPosts.body;
+      setPosts(oldPosts);
+      setCurrentPost(null);
+    }
+  };
 
   return (
     <div className="card-container">
@@ -75,7 +102,9 @@ const DisplayPosts = () => {
       {
          posts?.length > 0 && posts.map((post) => {
            return (
-             <Card key={post.id} title={`Title:  ${post.title}`} text={`Body:  ${post.body}`} />
+             <div>
+               <Card key={post.id} title={`Title:  ${post.title}`} text={`Body:  ${post.body}`} onEdit={() => handleEditPost(post)} />
+             </div>
            );
          })
       }
@@ -84,6 +113,9 @@ const DisplayPosts = () => {
           {POST_ERROR_MSG}
         </p>
       )}
+      {
+        currentPost && <EditPosts data={currentPost} show onClose={handleCloseModal} onSave={updatePosts} />
+      }
     </div>
   );
 };

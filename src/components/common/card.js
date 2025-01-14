@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from './button';
 
-const Card = ({ title, text }) => {
+const Card = ({
+  title,
+  text,
+  onEdit,
+}) => {
   return (
     <div className="card">
       <div className="card-body">
@@ -9,6 +14,9 @@ const Card = ({ title, text }) => {
         <p className="card-text">
           {text}
         </p>
+        <Button onClick={onEdit} title="Edit" variant="primary">
+          Edit
+        </Button>
       </div>
     </div>
   );
@@ -22,6 +30,7 @@ Card.defaultProps = {
 Card.propTypes = {
   title: PropTypes.string,
   text: PropTypes.string,
+  onEdit: PropTypes.func.isRequired,
 };
 
 export default Card;

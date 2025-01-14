@@ -1,0 +1,91 @@
+@import '../../../styles/variables.scss';
+
+// Modal styles
+.modal-content {
+  border-radius: 8px;
+  padding: 30px;  // Increase padding for more space inside the modal
+  box-shadow: 0 4px 15px $shadow-color;  // Stronger shadow for depth
+}
+
+.modal-header {
+  background-color: $background-color;
+  border-bottom: 1px solid $border-color;
+  
+  display: flex;
+  justify-content: space-between;  // Ensure title and close button are spaced
+
+  .modal-title {
+    color: $text-color;  
+    font-size: 1.8rem;  // Larger title
+    font-weight: 600;
+    margin: 0;  // Remove margin from title for better alignment
+  }
+
+  .close {
+    color: $body-color;
+    font-size: 2rem;  // Larger close button for better visibility
+    padding: 0;  // Remove padding for tight alignment
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+}
+
+.modal-body {
+  padding: 30px;  // Increase padding for larger body content
+  font-size: 1.1rem;  // Larger font for content readability
+
+  .form-group {
+    margin-bottom: 20px;  // More space between form groups
+
+    label {
+      font-size: 1.1rem;  // Slightly larger font for label
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      border-radius: 6px;  // Slightly larger input fields
+      border: 1px solid $border-color;
+      padding: 12px;  // More padding inside the input/textarea
+      font-size: 1.1rem;  // Larger font inside the fields
+
+      &:focus {
+        border-color: $primary;
+        box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+      }
+    }
+  }
+}
+
+.modal-footer {
+  border-top: 1px solid $border-color;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+
+  .btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+
+/* Increase modal width */
+.modal-dialog {
+  width: 80%;  // Increased width to 80% for larger modal
+  max-width: 900px;  // Optional max-width for large screens
+  margin: 50px auto;  // Center modal and add some margin from the top
+
+  @media (max-width: 767px) {
+    width: 90%;  // Modal width will be 90% for mobile
+    margin: 20px auto;
+  }
+}
+
+.modal.show {
+  display: block !important;
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
