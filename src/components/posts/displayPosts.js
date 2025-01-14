@@ -89,7 +89,7 @@ const DisplayPosts = () => {
 
   return (
     <div className="card-container">
-      <div className="d-flex justify-content-between align-items-center mb-3">
+      <div className="d-flex justify-content-between align-items-center mb-3 mt-1">
         <h2 className="flex-grow-1 text-center view-posts-text view-text">{VIEW_POSTS}</h2>
         {!showLoader && (
           <Button onClick={onAddPosts} title="Add" variant="primary">
